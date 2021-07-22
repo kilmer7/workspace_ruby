@@ -1,0 +1,15 @@
+<div class="content">
+  <div class="menu">
+      <h1>SysBank</h1>
+        Welcome, <strong><%= current_user.name %></strong>
+        <div class="flex-container">
+          <p>Saldo disponível: <strong>R$ <%= current_user.value_total %></strong></p>
+          <p><a href="/agencies">Agência Bancária</a></p>
+          <p><a href="/accounts">Conta Bancária</a></p>
+          <p><a href="/movement_accounts">Movimentação</a></p>
+          <p><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></p>
+          <p><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></p>
+        </div>
+  </div>
+</div>
+

@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<div class="content">
+  <div class="menu">
+    <h1>Agencies</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Num agency</th>
+          <th>Adress</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @agencies.each do |agency| %>
+          <tr>
+            <td><%= agency.num_agency %></td>
+            <td><%= agency.adress %></td>
+            <td><%= link_to 'Show', agency %></td>
+            <td><%= link_to 'Edit', edit_agency_path(agency) %></td>
+            <td><%= link_to 'Destroy', agency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div class="link">
+      <%= link_to 'New Agency', new_agency_path %>
+      <%= link_to "Back", root_path %>
+    </div>
+  </div>
+</div>
+

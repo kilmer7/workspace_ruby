@@ -1,0 +1,31 @@
+<div class="content">
+  <div id="login">
+    <h1>Log in</h1>
+
+    <%= form_for :person do |f| %>
+      <div class="field">
+          <p>
+            <label>username</label>
+            <input required="required" type="text"/>
+
+            <label>password</label>
+            <input required="required" type="password"/>
+          </p>
+
+          <p>
+            <input type="checkbox" value="">
+            <label>Remember me</label>
+          </p>
+
+          <p>
+            <input type="submit" value="Log in" />
+          </p>
+
+          <p class="link">
+            <%= link_to 'Back', root_path %>
+          </p>
+      </div>
+    <% end %>
+  </div>
+</div>
+

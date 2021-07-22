@@ -1,0 +1,39 @@
+// Place all the styles related to the movement_accounts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.flex{
+  display: flex;
+  background-color: #f1f1f1;
+  flex-direction: column;
+}
+
+.flex-container{
+  //display: flex;
+  //justify-content: center;
+  flex: auto;
+}
+
+.flex-container2{
+  display: flex;
+  justify-content: center;
+  flex: auto;
+}
+
+.flex-container > div{
+  margin: 2px 30px;
+  font-size: medium;
+  flex: auto;
+  text-align: center;
+}
+
+ul{
+  text-align: right;
+  font-size: 16px;
+  width: 440px;
+}
+
+ul a:hover{
+  color: #39bfd7;
+  background: none;
+}

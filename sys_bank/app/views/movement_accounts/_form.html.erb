@@ -1,0 +1,52 @@
+<%= form_with(model: movement_account, local: true) do |form| %>
+  <% if movement_account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(movement_account.errors.count, "error") %> prohibited this movement_account from being saved:</h2>
+
+      <ul>
+      <% movement_account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :movement_date %>
+    <%= form.date_select :movement_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.number_field :value %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :account_id %>
+    <%= current_user.account.name %>
+    <%= form.hidden_field :account_id, value: current_user.account.id%>
+    <% form.select :account_id, options_for_select(Account.all.map {|account| [account.name, account.id]}, movement_account.account_destiny) %>
+  </div>
+  
+  <% if movement_account.transfer? %>
+    <div class="field">
+      <%= form.label :account_destiny_id %>
+      <%= form.select :account_destiny_id, options_for_select(Account.all.map {|account| [account.name, account.id]}, movement_account.account_destiny_id) %>
+    </div>
+  <% end %>  
+
+  <div class="field">
+    <%= form.label :movement_type %>
+    <%= movement_account.movement_type %>
+    <%= form.hidden_field :movement_type %>
+    <% form.select :movement_type, options_for_select(MovementAccount.movement_types.map {|key, value| [key.titleize, MovementAccount.movement_types.key(value)]}, movement_account.movement_type) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
